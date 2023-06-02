@@ -1,0 +1,29 @@
+{
+    "query": {
+        "bool": {
+            "filter": [
+                {
+                    "multi_match": {
+                        "type": "",
+                        "query": "",
+                        "lenient": ""
+                        }
+                    },
+                {
+                    "match_phrase": {
+                    "kubernetes.container_name": "service-connector"
+                    }
+                },
+                {
+                    "range": {
+                        "@timestamp": {
+                        "gte": "",
+                        "lte": "",
+                        "format": "date_hour_minute_second_millis"
+                        }
+                    }
+                }
+                ]
+            }
+        }
+    }
