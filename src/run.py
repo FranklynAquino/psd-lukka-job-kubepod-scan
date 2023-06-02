@@ -31,6 +31,7 @@ with open(f'{job_id_list_filename}') as file1:
                                     opensearch_search_type='phrase')
             search_response:dict = opensearch.run_search(size=1,filter=['hits.hits._source'])
             hits = search_response['hits']['hits']
+            logger.info(f' hits-> {hits}')
         except KeyError as e:
             logger.info(f'No hits found. Key Error -> {e}')
             pass
@@ -41,6 +42,7 @@ with open(f'{job_id_list_filename}') as file1:
                         logger.info(f'Serializing hits from response')
                         opensearch_response:OpenSearchResponseObject = OpenSearchResponseObject(label_app_name=hit['_source']['kubernetes']['labels']['app'],
                                                                                                 pod_name=hit['_source']['kubernetes']['pod_name'],
+                                                                                                public_ip=hit['_source']['log_processed']['publicIP'],
                                                                                                 job_id=j_object.job_id)
                         opensearch_response_list.append(opensearch_response)
         except KeyError as e:

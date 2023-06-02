@@ -15,6 +15,11 @@
                     }
                 },
                 {
+                    "exists": {
+                    "field": "log_processed.publicIP"
+                    }
+                },
+                {
                     "range": {
                         "@timestamp": {
                         "gte": "",

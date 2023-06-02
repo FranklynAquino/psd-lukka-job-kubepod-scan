@@ -28,7 +28,7 @@ class SearchBodySetup:
         past_time = self.past_time.strftime('%H:%M:%S.%f')
         past_time = past_time[:-3]
 
-        search_time_range:dict = self.search_body['query']['bool']['filter'][2]['range']['@timestamp']
+        search_time_range:dict = self.search_body['query']['bool']['filter'][3]['range']['@timestamp']
         search_time_range.update([('gte',f'{past_date}T{past_time}'),('lte',f'{date_now}T{time_now}')])
         logger.info(f'Your current search times: {past_date}T{past_time} - {date_now}T{time_now}')
 
