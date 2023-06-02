@@ -15,6 +15,7 @@ File requirements: .txt file of job_id(s)
 To run this project locally, you will need to add the following environment variables to your .env file
 
 ```
+RESOURCE_PATH= .
 HOST_NAME=kibana.lukka.tech
 PORT_NUMBER=443
 OPENSEARCH_USERNAME=production_support_sa
